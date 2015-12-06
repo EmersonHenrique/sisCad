@@ -16,8 +16,8 @@ public class ClienteDao {
 		
 		try {
 			PreparedStatement stmt = con.prepareStatement(sql);
-			stmt.setString(1, c.getNome());			
-			System.out.println("salvar nome");			
+			stmt.setString(1, c.getNome());
+			
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
