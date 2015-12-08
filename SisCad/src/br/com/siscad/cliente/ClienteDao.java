@@ -1,6 +1,7 @@
 package br.com.siscad.cliente;
 
 import java.sql.*;
+import java.util.*;
 
 public class ClienteDao {
 	
@@ -30,5 +31,79 @@ public class ClienteDao {
 		}
 		
 	}
+	
+public void remover(Cliente c) {
+		
+		String sql = "delete from cliente where id=?";
+		
+		try {
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setInt(1, c.getId());
+			stmt.execute();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{			
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+					
+	     }		
+		
+	}
+
+	public void atualizar(Cliente c) {
+		String sql = "update cliente set nome = ? where id=?";		
+		try {
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setString(1, c.getNome());
+			stmt.setInt(2, c.getId());
+			stmt.execute();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{			
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+					
+	     }
+	}
+
+	public List<Cliente> getList() {
+		
+		String sql = "select * from cliente";
+		try {
+			PreparedStatement stmt = con.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			
+			List<Cliente> minhaLista = new ArrayList<Cliente>();
+			while(rs.next()){
+				Cliente c = new Cliente();
+				c.setId(rs.getInt("id"));
+				c.setNome(rs.getString("nome"));
+				
+				minhaLista.add(c);
+			}
+				
+			stmt.close();
+			rs.close();
+			return minhaLista;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return null;		
+	}
+
     
 }
