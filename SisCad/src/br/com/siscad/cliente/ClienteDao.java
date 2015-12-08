@@ -25,6 +25,7 @@ public class ClienteDao {
 		}finally{			
 				con.close();
 				System.out.println("conexao fechada");
+				System.out.println("conexao fechada");
 			
 		}
 		

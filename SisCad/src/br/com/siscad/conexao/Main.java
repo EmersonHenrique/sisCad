@@ -10,7 +10,7 @@ public class Main {
    public static void main(String[] args) throws SQLException {
 		
 	Cliente c =new Cliente();
-	c.setNome("Marquinhos Goes");
+	c.setNome("Marquinhos Goes"); 
 	
 	Connection con = CriarConexao.getConexao();
 	
