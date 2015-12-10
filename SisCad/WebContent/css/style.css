@@ -1,0 +1,101 @@
+@CHARSET "ISO-8859-1";
+
+*{
+  margin:0px;
+  padding:0px;
+ }
+ 
+#conteiner{
+   width:950px;
+   height:640px;
+   background:#FFF;
+   margin:0 auto;/* centraliza a pagina*/
+   }
+   
+#header{
+   width:950px;
+   height:100px;
+   background:#FFF;
+}
+
+#menu{
+   width:950px;
+   height:32px;
+   background:#999;
+   margin:0 auto;/* centraliza a pagina*/
+} 
+#conteudo{
+   width:950px;
+   height:360px;
+   background:#DCDCDC;
+ }
+ 
+#rodape{
+   width:950px;
+   height:40px;
+   background:#696969;
+}
+
+#cliente{
+	width:900px;
+	background:#FFF;
+	margin:0 auto;/* centraliza a pagina*/
+	background:#DCDCDC;
+}
+/*********************************************************  links **********************************************************/
+
+#navMenu{
+    margin:0;
+    padding:0;
+    } 
+}
+
+#navMenu ul{
+   margin:0;
+   padding:0;
+   line-height:30px;
+}
+
+#navMenu li{
+   margin:0;
+   padding:0;
+   list-style:none;
+   float:left;
+   position:relative;
+   background:#999;
+}
+
+#navMenu ul li a{
+   text-align:center;
+   font-family:"Comic Sans MS", cursive;
+   text-decoration:none;
+   height:30px;
+   width:156px;
+   display:block;
+   color:#FFF;
+   border:1px solid #999;
+   text-shadow:1px 1px 1px #000;
+}
+
+#navMenu ul ul{
+   position:absolute;
+   visibility:hidden;
+   top:32px;
+}
+
+#navMenu ul li:hover ul{
+   visibility:visible;
+}
+/**********************************************/
+
+#navMenu li:hover{
+ background:#09F;
+}
+
+#navMenu ul li:hover ul  li a:hover{
+   background:#CCC;
+   color:#000;
+}
+#navMenu a:hover{
+ color:#000;
+}

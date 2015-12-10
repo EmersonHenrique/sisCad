@@ -22,6 +22,7 @@ public class ClienteDao {
 
 			stmt.execute();
 			stmt.close();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

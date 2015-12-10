@@ -13,13 +13,18 @@ public class Main {
 	Cliente c =new Cliente();
 	Connection con = CriarConexao.getConexao();
 	ClienteDao dao=new ClienteDao(con);
-	
+	/*
 	List<Cliente> list = new ArrayList<>();
 	list = (List<Cliente>) dao.getList("m%");
 	
 	for (Cliente c1 : list) {
 		System.out.println(c1.getId() + " : " + c1.getNome());		
-	}	
-	
+	}	*/
+	c.setNome("Marisa Campos");
+	try {
+		dao.salvar(c);
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
   }
 }
