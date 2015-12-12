@@ -20,11 +20,17 @@ public class Main {
 	for (Cliente c1 : list) {
 		System.out.println(c1.getId() + " : " + c1.getNome());		
 	}	*/
-	c.setNome("Marisa Campos");
-	try {
-		dao.salvar(c);
-	} catch (SQLException e) {
-		e.printStackTrace();
-	}
+	
+	int i = dao.contaRegistro();
+	
+	System.out.println("i = " + i);
+	
+	
+	
+	System.out.println(19%10);
+	
   }
+   
+  
+   
 }

@@ -9,6 +9,7 @@
 <title>Cliente</title>
 </head>
 <body>
+  <c:import url="cabecalho.jsp"/>
   <div id="conteiner">
 	 <div id="header">header</div>
 	   
@@ -22,12 +23,12 @@
 	 <ul>		  
 	 <li><a href="cad_cliente.jsp">Novo</a></li>	
 	 </ul>
+	 
 	 <ul>		  
-	 <li><a href="list_cliente.jsp">Lista</a></li>	
+	 <li><a href="List_cliente2?numPagina=1">Lista</a></li>	
 	 </ul>
 	
-	</li>	
-	</ul>	
+		
 	</div>
 	</div>	   
 	</div>

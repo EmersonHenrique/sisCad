@@ -77,9 +77,15 @@ public class ClienteDao {
 	}
 
 	// -----------------------------------------------------------------------------------------------------------------------------------------------
-	public List<Cliente> getList() {
-
-		String sql = "select * from cliente";
+	public List<Cliente> getList(int pagina) {
+		if (pagina==1)
+			pagina = 0;
+		else
+			pagina=--pagina;
+		
+		pagina = pagina * 10;
+		
+		String sql = "select * from cliente  LIMIT 10 offset "+pagina+";";
 		try {
 			PreparedStatement stmt = con.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
@@ -109,8 +115,36 @@ public class ClienteDao {
 	}
 
 	// ---------------------------------------------------------------------------------------------------------------------------------------------
-
-	public List<Cliente> getList(int id) {
+    public int contaRegistro(){
+    	ResultSet rs = null;
+    	PreparedStatement stmt = null;
+    	String sql = "select count(*) AS contaRegistro from cliente";
+    	try {
+    	    stmt = con.prepareStatement(sql);    	
+		    rs = stmt.executeQuery();
+			rs.next();
+			int registros = Integer.parseInt(rs.getString("contaRegistro"));			
+			
+			int resto = registros%10;	
+			if(resto != 0)	
+			return (registros / 10) + 1;
+			else			
+			return registros / 10;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			try {
+				con.close();
+				stmt.close();
+				rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}			
+		}
+    	return 0;
+    }
+	public List<Cliente> getListBuscaId(int id) {
 
 		String sql = "select * from cliente where id=?";
 		try {

@@ -42,6 +42,13 @@
 	margin:0 auto;/* centraliza a pagina*/
 	background:#DCDCDC;
 }
+
+#lista{
+	width:700px;
+	background:#FFF;
+	margin:0 auto;/* centraliza a pagina*/
+	background:#DCDCDC;	
+}
 /*********************************************************  links **********************************************************/
 
 #navMenu{
