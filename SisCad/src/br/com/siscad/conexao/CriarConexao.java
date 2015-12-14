@@ -14,7 +14,7 @@ public class CriarConexao {
 		String senha = "123";
 		Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager.getConnection(url, usuario, senha);
-			System.out.println("Conectado");
+			//System.out.println("Conectado");
 		} catch (ClassNotFoundException e) {
 			System.out.println("Ocorreu um erro de ClassNotFoundException. Erro: " + e.getMessage());	
 		} catch (SQLException e) {

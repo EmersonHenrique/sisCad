@@ -9,26 +9,18 @@ import br.com.siscad.cliente.ClienteDao;
 
 public class Main {
    public static void main(String[] args) throws SQLException {
+		int num = 13;
+		Cliente cli = null;
+	   List<Cliente> li =new ArrayList<Cliente>();
+		Cliente c = new Cliente();
+		Connection con = CriarConexao.getConexao();
+		ClienteDao dao = new ClienteDao(con);
 		
-	Cliente c =new Cliente();
-	Connection con = CriarConexao.getConexao();
-	ClienteDao dao=new ClienteDao(con);
-	/*
-	List<Cliente> list = new ArrayList<>();
-	list = (List<Cliente>) dao.getList("m%");
-	
-	for (Cliente c1 : list) {
-		System.out.println(c1.getId() + " : " + c1.getNome());		
-	}	*/
-	
-	int i = dao.contaRegistro();
-	
-	System.out.println("i = " + i);
-	
-	
-	
-	System.out.println(19%10);
-	
+		c.setId(num);
+		cli = dao.consulta(num);
+		
+	System.out.println(dao.consulta(num).getNome());
+	System.out.println(dao.consulta(num).getId());
   }
    
   

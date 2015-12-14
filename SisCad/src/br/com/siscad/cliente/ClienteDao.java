@@ -215,4 +215,26 @@ public class ClienteDao {
 	}
 
 	// -----------------------------------------------------------------------------------------------------------------------------------------------
+
+	public Cliente consulta(int id){
+	      
+	      Cliente c = new Cliente();
+	      String sql = "select * from cliente where id=?";
+	      try{
+	          
+	PreparedStatement smt = (PreparedStatement) con.prepareStatement(sql);
+	      smt.setInt(1, id);
+	ResultSet rs = smt.executeQuery();
+	     
+	      rs.next();   
+	     
+	      c.setId(rs.getInt("id"));
+	      c.setNome(rs.getString("nome"));
+	              
+	      }catch(Exception e){
+	       
+	      }
+	      return c; 
+	  } 
+
 }
