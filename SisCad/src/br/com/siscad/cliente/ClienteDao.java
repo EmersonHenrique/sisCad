@@ -144,8 +144,30 @@ public class ClienteDao {
 		}
     	return 0;
     }
-	public List<Cliente> getListBuscaId(int id) {
+	public Cliente getListBuscaId(int id) {		
+		
+		Cliente c = new Cliente();
+	      String sql = "select * from cliente where id=?";
+	      try{
+	          
+	PreparedStatement smt = (PreparedStatement) con.prepareStatement(sql);
+	      smt.setInt(1, id);
+	ResultSet rs = smt.executeQuery();
+	     
+	      rs.next();   
+	     
+	      c.setId(rs.getInt("id"));
+	      c.setNome(rs.getString("nome"));
+	              
+	      }catch(Exception e){
+	       
+	      }
+	      return c; 
+	  } 
 
+		
+		
+/*
 		String sql = "select * from cliente where id=?";
 		try {
 			PreparedStatement stmt = con.prepareStatement(sql);
@@ -174,7 +196,8 @@ public class ClienteDao {
 			}
 		}
 		return null;
-	}
+		*/
+	
 
 	// -------------------------------------------------------------------------------------------------------------------------------------------------
 

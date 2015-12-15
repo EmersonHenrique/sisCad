@@ -10,6 +10,7 @@
 </head>
 <body>
   <c:import url="cabecalho.jsp"/>
+  
   <div id="conteiner">
 	 <div id="header">header</div>
 	   
@@ -36,15 +37,15 @@
 	   <div id="conteudo"> 
 	      <div id="cliente">
 	        <br>
-	          
+	        msg<c:out value="${msg}"/>  
 	        <table>
-	        <form name="frm_cad_cliente" action="" method="get">
+	        <form name="frm_cad_cliente" action="atu_ClienteServlet2" method="get">
 	        <input type="hidden" name="id" value="${li.id}"/>
 	        <tr>
 	            <td>Nome:</td><td><input type="text" name="txt_nome" value="${li.nome}" ></td>
 	        </tr> 
 	        <tr>
-	           <td colspan="2"><input type="submit" value="cadastrar"/></td>
+	           <td colspan="2"><input type="submit" value="Atualizar"/></td>
 	        </tr>   
 	        </form>
 	       </table>
