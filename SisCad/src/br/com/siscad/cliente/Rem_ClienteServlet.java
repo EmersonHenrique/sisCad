@@ -33,11 +33,10 @@ public class Rem_ClienteServlet extends HttpServlet {
 		c.setId(num);
 		dao.remover(c);
 		
-		RequestDispatcher rq = request.getRequestDispatcher("/List_cliente2");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/List_cliente2");
 		request.setAttribute("msg", "Excluido o Id " + num + " com Sucesso. ");
-		rq.forward(request, response);
-		System.out.println("cliente para remove " + num);
-		
+		dispatcher.forward(request, response);
+	
 	}
 
 	

@@ -7,7 +7,7 @@
     <script type="text/javascript">
   function confirmacao(id){
        if(confirm("Deseja Excluir id " + id + " ? ")){ 
-    	   location.href="/SisCad/rem_cliente?num="+id;
+    	   location.href="rem_cliente?num="+id;
        }else{
     	   return false; 
        }    	  
@@ -60,7 +60,7 @@
 	     <tr bgcolor="#${id.count % 2 == 0 ? 'A9A9A9' : 'ffffff' }" >	      
 	          <td>${li.id}</td> <td>${li.nome}</td>
 	       <!--   <td><a href="rem_cliente?num=${li.id}"><img src="img/6239_32x32.png"/></a></td>  --> 
-	          <td><a href=""><img src="img/6239_32x32.png" onclick="confirmacao(${li.id})"/></a></td>
+	          <td><a href="rem_cliente?num=${li.id}"><img src="img/6239_32x32.png" onclick="confirmacao(${li.id})"/></a> </td>
 	          <td><a href="atu_Cliente?num=${li.id}"><img src="img/package_editors.png"/></a></td>
 	      </tr>
 	      </c:forEach>
