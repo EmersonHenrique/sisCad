@@ -11,7 +11,7 @@
 <body>
   <c:import url="cabecalho.jsp"/>
   <div id="conteiner">
-	 <div id="header">header</div>
+	 <div id="header"> </div>
 	   
 	 <div id="menu">	   
 	               <div id="wrapper">
@@ -40,8 +40,17 @@
 	        <table>
 	        <form name="frm_cad_cliente" action="Cad_cliente" method="get">
 	        <tr>
-	            <td>Nome:</td><td><input type="text" name="txt_nome" size="50"></td>
+	            <td>Nome:</td><td><input type="text" name="txt_nome" size="50"></td> <td>Tel:</td><td><input type="text" name="txt_tel" size="40"></td>
 	        </tr> 
+	        
+	        <tr>
+	            <td>End:</td><td><select> </select></td> <td>Bairro:</td><td><select> </select></td>
+	        </tr>
+	        
+	        <tr>
+	            <td>Cidade:</td><td><select> </select></td> <td>UF:</td><td><select> </select></td>
+	        </tr>	        
+	        
 	        <tr>
 	           <td colspan="2"><input type="submit" value="cadastrar"/></td>
 	        </tr>   

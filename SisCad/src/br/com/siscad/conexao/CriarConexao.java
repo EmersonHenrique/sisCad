@@ -9,7 +9,7 @@ public class CriarConexao {
 	public static Connection getConexao(){
 		Connection con = null;
 		try {
-		String url="jdbc:mysql://localhost/sisCadDb"; 
+		String url="jdbc:mysql://localhost/sisCadbD"; 
 		String usuario = "root";
 		String senha = "123";
 		Class.forName("com.mysql.jdbc.Driver");

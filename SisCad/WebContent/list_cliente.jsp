@@ -18,7 +18,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>listar clientes</title>
 </head>
-<body>   
+<body>  
+    <c:import url="cabecalho.jsp"/> 
     <div id="conteiner">
 	   <div id="header">  </div>
 	   <c:out value="${msg}"/>	   
@@ -30,11 +31,18 @@
 	 <li><a href="index.html">Home</a>
 	 <ul>		  
 	 <li></li>	
+	 </ul>	
+	 </li>	
 	 </ul>
-	
-	</li>	
-	</ul>
-	
+	 <!--********************* -->
+	 <ul>
+	 <li><a href="VisualisarRelatorio?relat=cliente">Relatório</a>
+	 <ul>		  
+	 <li></li>	
+	 </ul>	
+	 </li>	
+	 </ul>
+	<!--**********************-->
 	<ul>
 	 <li><a href="index.html">Cadastro</a>
 	 <ul>		  

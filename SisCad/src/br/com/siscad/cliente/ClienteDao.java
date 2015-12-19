@@ -197,8 +197,39 @@ public class ClienteDao {
 		}
 		return null;
 		*/
-	
+	//--------------------------------------------------------------------------------------------------------------------------------------------------
+	public List<Cliente> getList() {
 
+		try {
+			String sql = "select * from cliente";
+
+			PreparedStatement smt = con.prepareStatement(sql);
+			ResultSet rs = smt.executeQuery();
+
+			List<Cliente> minhaLista = new ArrayList<Cliente>();
+			while (rs.next()) {
+				Cliente c = new Cliente();
+
+				c.setId(rs.getInt("id"));
+				c.setNome(rs.getString("nome"));
+
+				minhaLista.add(c);
+			}
+
+			smt.close();
+			rs.close();
+
+			return minhaLista;
+		} catch (SQLException ex) {
+			return null;
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		  }
+		}
 	// -------------------------------------------------------------------------------------------------------------------------------------------------
 
 	public List<Cliente> getList(String nome) {

@@ -9,8 +9,7 @@
 <title>Cliente</title>
 </head>
 <body>
-  <c:import url="cabecalho.jsp"/>
-  
+  <c:import url="cabecalho.jsp"/>  
   <div id="conteiner">
 	 <div id="header">header</div>
 	   

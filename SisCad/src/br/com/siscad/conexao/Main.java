@@ -24,46 +24,29 @@ public class Main {
    public static void main(String[] args) throws SQLException, JRException {
 		int num = 13;
 		Cliente cli = null;
-	   List<Cliente> li =new ArrayList<Cliente>();
+	   List<Cliente> list =new ArrayList<Cliente>();
 		Cliente c = new Cliente();
 		Connection con = CriarConexao.getConexao();
 		ClienteDao dao = new ClienteDao(con);
-		
 		/*
-		HashMap parametro = new HashMap(); 
-	    JasperReport pathjrxml = JasperCompileManager.compileReport("C:/Users/maria/git/br.com.siscad.git/SisCad/src/br/com/siscad/relatorio/clientes.jasper");
-	    JasperPrint jp = JasperFillManager.fillReport(pathjrxml, parametro, con);
-	    JasperExportManager.exportReportToPdfFile("C:/Users/maria/git/br.com.siscad.git/SisCad/src/br/com/siscad/relatorio/clientes.pdf");
+		list = dao.getList();
 		
-		JasperViewer jrv = new JasperViewer(jp);
-		jrv.setVisible(true);
+		for (Cliente cliente : list) {
+			System.out.print("\""+c.getNome()+"\"");
+		}
 		*/
 		
-		try{
-	          
-	          
-	           
-	          HashMap parametros = new HashMap();
-	          JasperPrint jp = JasperFillManager.fillReport("C:/Users/maria/git/br.com.siscad.git/SisCad/src/br/com/siscad/relatorio/clientes.jasper", parametros,con);
-	        //  JasperPrint jp = JasperFillManager.fillReport("./relatorio/clientes.jasper", parametros,con);
-	          
-	          
-	         // JasperExportManager.exportReportToPdfFile(jp,"C:/Users/maria/git/br.com.siscad.git/SisCad/src/br/com/siscad/relatorio/clientes.pdf");
-	       	                 
-	        //  String path = "/src/br/com/siscad/relatorio/clientes.pdf";
-	                        String path = "C:/Users/maria/git/br.com.siscad.git/SisCad/src/br/com/siscad/relatorio/clientes.pdf";
-	      	          
-	       // File pdf = new File(path);
-	                       JasperViewer jrVew = new JasperViewer(jp,false);
-	        //Desktop.getDesktop().open(pdf);
-	          
-	          jrVew.setVisible(true);          
-	                        
-	          
-	       }catch(Exception e){
-	           e.printStackTrace();
-	       
-	    }         
+		String [] nomes = {"Anelia Campos","Silvia Molegate","marilia pera","Jose","marilza","david miller","Pamela Gomes","Anna Carolina","Bruna Kolosvik","Silvia Shapme","Carolina Dias","Emiliano Souza","Ricardo Molina","Pietra Caminostron","Gina Clacker","Chico Pinheiro","Marcia","Cesar Tralli","Mineirinho","Madre Teresa","Rodrigo Nardele","Gil Rugay"};
+		ClienteDao dao2 = new ClienteDao(con);
+		for(int i=0; i<nomes.length; i++){
+			Cliente c2 = new Cliente();
+			
+			
+			c2.setNome(nomes[i]);
+			
+		    dao2.salvar(c);
+			System.out.println(nomes[i]);
+		}
 		
   }
    
