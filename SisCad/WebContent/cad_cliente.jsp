@@ -44,11 +44,35 @@
 	        </tr> 
 	        
 	        <tr>
-	            <td>End:</td><td><select> </select></td> <td>Bairro:</td><td><select> </select></td>
+	            <td>End:</td>
+	                <td>
+	                <select name="endereco">
+	                  <c:forEach items="${end}" var="e">
+	                     <option value="${e.logradouro}">${e.logradouro}</option>
+	                  </c:forEach> 	                
+	                </select></td>
+	                
+	        <td>Nº</td><td><input type="text" name="txt_num" size="5"></td>        
+	        
 	        </tr>
 	        
 	        <tr>
-	            <td>Cidade:</td><td><select> </select></td> <td>UF:</td><td><select> </select></td>
+	        	        
+	            <td>Bairro:</td>
+	            <td>
+	              <select name="bairro">
+	                <c:forEach items="${bai}" var="b">
+	                    <option value="${b.nome}">${b.nome}</option>	                
+	                </c:forEach>
+	               </select></td>
+	               
+	            <td>Cidade:</td>
+	            <td>
+	              <select name="cidade">
+	                <c:forEach items="${cid}" var="c">
+	                   <option value="${c.nome}">${c.nome}</option>
+	                </c:forEach>
+	               </select></td> 
 	        </tr>	        
 	        
 	        <tr>

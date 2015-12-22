@@ -46,7 +46,7 @@
 	<ul>
 	 <li><a href="index.html">Cadastro</a>
 	 <ul>		  
-	 <li><a href="cad_cliente.jsp">Cliente</a></li>	
+	 <li><a href="cad_cliente">Cliente</a></li>	
 	 </ul>
 	
 	</li>	
@@ -77,10 +77,7 @@
 	     String numPagina = request.getParameter("numPagina");
 	     if(numPagina==null){
 	    	 numPagina="1";
-	     }
-	     
-	     
-	     
+	     }	          
 	        Object object = request.getAttribute("totalRegistros");
 	        int totalRegistros = Integer.parseInt(object.toString());
 	        for(int i = 1; i<=totalRegistros; i++)

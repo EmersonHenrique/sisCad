@@ -4,11 +4,19 @@ public class Cliente {
     private int id;
     private String nome;
     private String telefone;
+    private int numero;
     private int endereco;
     private int bairro;
     private int cidade;
     private String UF; 
     
+       
+	public int getNumero() {
+		return numero;
+	}
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
 	public int getId() {
 		return id;
 	}
