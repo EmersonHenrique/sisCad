@@ -14,11 +14,17 @@ public class ClienteDao {
 	// -----------------------------------------------------------------------------------------------------------------------------------------------
 	public void salvar(Cliente c) throws SQLException {
 
-		String sql = "insert into cliente(nome)values(?)";
+		String sql = "insert into cliente(cli_nome,cli_telefone,cli_endereco,cli_bairro,cli_cidade,cli_numero)values(?,?,?,?,?,?)";
 
 		try {
+			
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1, c.getNome());
+			stmt.setString(2, c.getTelefone());
+			stmt.setInt(3, c.getEndereco());
+			stmt.setInt(4, c.getBairro());
+			stmt.setInt(5, c.getCidade());
+			stmt.setInt(6, c.getNumero());
 
 			stmt.execute();
 			stmt.close();
@@ -93,8 +99,13 @@ public class ClienteDao {
 			List<Cliente> minhaLista = new ArrayList<Cliente>();
 			while (rs.next()) {
 				Cliente c = new Cliente();
-				c.setId(rs.getInt("id"));
-				c.setNome(rs.getString("nome"));
+				c.setId(rs.getInt("cli_id"));
+				c.setNome(rs.getString("cli_nome"));
+				c.setTelefone(rs.getString("cli_telefone"));
+				c.setEndereco(rs.getInt("cli_endereco"));
+				c.setBairro(rs.getInt("cli_bairro"));
+				c.setCidade(rs.getInt("cli_cidade"));
+				c.setNumero(rs.getInt("cli_numero"));
 
 				minhaLista.add(c);
 			}
@@ -210,9 +221,14 @@ public class ClienteDao {
 			while (rs.next()) {
 				Cliente c = new Cliente();
 
-				c.setId(rs.getInt("id"));
-				c.setNome(rs.getString("nome"));
-
+				c.setId(rs.getInt("cli_id"));
+				c.setNome(rs.getString("cli_nome"));
+				c.setTelefone(rs.getString("cli_telefone"));
+				c.setEndereco(rs.getInt("cli_endereco"));
+				c.setBairro(rs.getInt("cli_bairro"));
+				c.setCidade(rs.getInt("cli_cidade"));
+				c.setNumero(rs.getInt("cli_numero"));
+				
 				minhaLista.add(c);
 			}
 

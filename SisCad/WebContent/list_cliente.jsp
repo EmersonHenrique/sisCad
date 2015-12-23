@@ -62,12 +62,12 @@
 	      <br><br>
 	   <table border="1">
 	      <tr>
-	         <td>Id</td><td colspan="3">Nome</td>
+	         <td>Id</td><td>Nome</td><td>Telefone</td><td>Endereco</td><td>Bairro</td><td>Cidade</td><td>Nº</td><td colspan="3"></td>
 	      </tr>
 	      <c:forEach var="li" items="${list}" varStatus="id">
 	     <tr bgcolor="#${id.count % 2 == 0 ? 'A9A9A9' : 'ffffff' }" >	      
-	          <td>${li.id}</td> <td>${li.nome}</td>
-	       <!--   <td><a href="rem_cliente?num=${li.id}"><img src="img/6239_32x32.png"/></a></td>  --> 
+	          <td>${li.id}</td> <td>${li.nome}</td> <td>${li.telefone}</td> <td>${li.endereco}</td> <td>${li.bairro}</td> <td>${li.cidade}</td><td>${li.numero}</td>
+	       
 	          <td><a href="rem_cliente?num=${li.id}"><img src="img/6239_32x32.png" onclick="confirmacao(${li.id})"/></a> </td>
 	          <td><a href="atu_Cliente?num=${li.id}"><img src="img/package_editors.png"/></a></td>
 	      </tr>

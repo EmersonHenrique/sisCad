@@ -66,15 +66,15 @@ public class Cad_cliente extends HttpServlet {
 		c.setNumero(numero);
 		c.setBairro(ba);
 		c.setCidade(ci);
-		/*
+		
 		try {
 			dao.salvar(c);
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}*/
+		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/cad_cliente");
-		request.setAttribute("msg", "Salvo com Sucesso");
+		request.setAttribute("msg", "Cliente " + nome + " Salvo com Sucesso");
 		dispatcher.forward(request, response);
 	}
 

@@ -36,6 +36,7 @@ public class List_ClienteServlet extends HttpServlet {
 		ClienteDao dao = new ClienteDao(con);		
 						
 		list = dao.getList(Integer.parseInt(numPagina));
+		//list = dao.getList();
 		
 		Connection con2 = CriarConexao.getConexao();
 		ClienteDao dao2 = new ClienteDao(con2);
