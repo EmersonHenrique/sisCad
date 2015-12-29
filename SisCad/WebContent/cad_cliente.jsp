@@ -21,7 +21,7 @@
 	 <li><a href="index.html">Home</a>
 	 </ul>
 	 <ul>		  
-	 <li><a href="cad_cliente.jsp">Novo</a></li>	
+	 <li><a href="cad_cliente">Novo</a></li>	
 	 </ul>
 	 
 	 <ul>		  

@@ -3,6 +3,10 @@ package br.com.siscad.cliente;
 import java.sql.*;
 import java.util.*;
 
+import br.com.siscad.conexao.CriarConexao;
+import br.com.siscad.endereco.Endereco;
+import br.com.siscad.endereco.EnderecoDao;
+
 public class ClienteDao {
 
 	private Connection con;
@@ -63,11 +67,17 @@ public class ClienteDao {
 
 	// -----------------------------------------------------------------------------------------------------------------------------------------------
 	public void atualizar(Cliente c) {
-		String sql = "update cliente set nome = ? where id=?";
+		String sql = "update cliente set cli_nome = ?, cli_telefone =?,cli_endereco=?,cli_bairro=?,cli_cidade=?,cli_numero= ? where cli_id=?";
 		try {
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1, c.getNome());
-			stmt.setInt(2, c.getId());
+			stmt.setString(2, c.getTelefone());
+			stmt.setInt(3, c.getEndereco());
+			stmt.setInt(4, c.getBairro());
+			stmt.setInt(5, c.getCidade());
+			stmt.setInt(6, c.getNumero());			
+			stmt.setInt(7, c.getId());
+			
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
@@ -99,14 +109,21 @@ public class ClienteDao {
 			List<Cliente> minhaLista = new ArrayList<Cliente>();
 			while (rs.next()) {
 				Cliente c = new Cliente();
+				
 				c.setId(rs.getInt("cli_id"));
 				c.setNome(rs.getString("cli_nome"));
 				c.setTelefone(rs.getString("cli_telefone"));
-				c.setEndereco(rs.getInt("cli_endereco"));
+				//c.setEndereco(rs.getInt("cli_endereco"));
 				c.setBairro(rs.getInt("cli_bairro"));
 				c.setCidade(rs.getInt("cli_cidade"));
 				c.setNumero(rs.getInt("cli_numero"));
-
+				
+				Connection con2 = CriarConexao.getConexao();
+				EnderecoDao dao_e = new EnderecoDao(con2);
+				
+				c.setEndereco(rs.getInt("cli_endereco"));
+			
+								
 				minhaLista.add(c);
 			}
 
@@ -155,23 +172,28 @@ public class ClienteDao {
 		}
     	return 0;
     }
-	public Cliente getListBuscaId(int id) {		
+	public Cliente getListBuscaId(int cli_id) {		
 		
 		Cliente c = new Cliente();
-	      String sql = "select * from cliente where id=?";
+	      String sql = "select * from cliente where cli_id=?";
 	      try{
 	          
 	PreparedStatement smt = (PreparedStatement) con.prepareStatement(sql);
-	      smt.setInt(1, id);
+	      smt.setInt(1, cli_id);
 	ResultSet rs = smt.executeQuery();
 	     
-	      rs.next();   
-	     
-	      c.setId(rs.getInt("id"));
-	      c.setNome(rs.getString("nome"));
+	      rs.next();   	     
+	      
+	      c.setNome(rs.getString("cli_nome"));
+	      c.setTelefone(rs.getString("cli_telefone"));
+		  c.setEndereco(rs.getInt("cli_endereco"));
+		  c.setBairro(rs.getInt("cli_bairro"));
+		  c.setCidade(rs.getInt("cli_cidade"));
+		  c.setNumero(rs.getInt("cli_numero"));
+		  c.setId(rs.getInt("cli_id"));
 	              
 	      }catch(Exception e){
-	       
+	       System.out.println("Error método ClienteDao " + e);
 	      }
 	      return c; 
 	  } 

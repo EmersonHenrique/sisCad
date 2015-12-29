@@ -11,7 +11,7 @@
 <body>
   <c:import url="cabecalho.jsp"/>  
   <div id="conteiner">
-	 <div id="header">header</div>
+	 <div id="header"> </div>
 	   
 	 <div id="menu">	   
 	               <div id="wrapper">
@@ -21,7 +21,7 @@
 	 <li><a href="index.html">Home</a>
 	 </ul>
 	 <ul>		  
-	 <li><a href="cad_cliente.jsp">Novo</a></li>	
+	 <li><a href="cad_cliente">Novo</a></li>	
 	 </ul>
 	 
 	 <ul>		  
@@ -36,13 +36,48 @@
 	   <div id="conteudo"> 
 	      <div id="cliente">
 	        <br>
-	        msg<c:out value="${msg}"/>  
-	        <table>
+	        <c:out value="${msg}"/>  
+	        <table border="0">
 	        <form name="frm_cad_cliente" action="atu_ClienteServlet2" method="get">
 	        <input type="hidden" name="id" value="${li.id}"/>
 	        <tr>
 	            <td>Nome:</td><td><input type="text" name="txt_nome" value="${li.nome}" ></td>
 	        </tr> 
+	        
+	        <tr>
+	            <td>Endereco:</td><td> 
+	               <select name="endereco">
+	                  <c:forEach items="${end}" var="e">
+	                      <option value="${e.id}" ${li.endereco == e.id ? 'selected' : ''}>${e.logradouro}</option>  
+	                  </c:forEach> 	                
+	                </select>
+	               Nº:<input type="text" name="txt_num" value="${li.numero}" size="3" /> 
+	        </td>
+	        
+	        <tr>
+	            <td>Bairro:</td><td> 
+	               <select name="bairro">
+	                  <c:forEach items="${bai}" var="b">
+	                      <option value="${b.id}" ${li.bairro == b.id ? 'selected' : ''}>${b.nome}</option>  
+	                  </c:forEach> 	                
+	                </select>	                
+	        </td>	        
+	        </tr>   
+	         
+	         <tr>
+	            <td>Cidade:</td><td> 
+	               <select name="cidade">
+	                  <c:forEach items="${cid}" var="c">
+	                      <option value="${c.id}" ${li.cidade == c.id ? 'selected' : ''}>${c.nome}</option>  
+	                  </c:forEach> 	                
+	                </select>	                
+	        </td>	        
+	        </tr>  
+	            	        
+	        <tr>
+	            <td>Telefone:</td><td><input type="text" name="txt_tel" value="${li.telefone}" ></td>
+	        </tr> 
+	        	        
 	        <tr>
 	           <td colspan="2"><input type="submit" value="Atualizar"/></td>
 	        </tr>   

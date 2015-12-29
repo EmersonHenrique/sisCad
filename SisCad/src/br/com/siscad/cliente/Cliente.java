@@ -1,5 +1,6 @@
 package br.com.siscad.cliente;
 
+
 public class Cliente {
     private int id;
     private String nome;
@@ -10,8 +11,7 @@ public class Cliente {
     private int cidade;
     private String UF; 
     
-       
-	public int getNumero() {
+    public int getNumero() {
 		return numero;
 	}
 	public void setNumero(int numero) {
@@ -58,7 +58,5 @@ public class Cliente {
 	}
 	public void setUF(String uF) {
 		UF = uF;
-	}
-	
-	
+	}		
 }

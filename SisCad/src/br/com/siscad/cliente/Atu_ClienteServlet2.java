@@ -28,13 +28,26 @@ public class Atu_ClienteServlet2 extends HttpServlet {
 		
 		int id = Integer.parseInt(request.getParameter("id"));
 		String nome = request.getParameter("txt_nome");
+		String tel = request.getParameter("txt_tel");
+		int end = Integer.parseInt(request.getParameter("endereco"));
+		int bai = Integer.parseInt(request.getParameter("bairro"));
+		int cid = Integer.parseInt(request.getParameter("cidade"));
+		int numero = Integer.parseInt(request.getParameter("txt_num"));
+		
 		
         Cliente c = new Cliente();
         Connection con = CriarConexao.getConexao();
         ClienteDao dao = new ClienteDao(con);
         
         c.setId(id);
+        
         c.setNome(nome);
+        c.setTelefone(tel);
+        c.setEndereco(end);
+        c.setBairro(bai);
+        c.setCidade(cid);
+        c.setNumero(numero);
+        
         
         dao.atualizar(c);
         
