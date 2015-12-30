@@ -68,7 +68,7 @@
 	         <td>Id</td><td>Nome</td><td>Telefone</td><td colspan="3"></td>
 	      </tr>
 	      <c:forEach var="li" items="${list}" varStatus="id">	      
-	     <tr bgcolor="#${id.count % 2 == 0 ? 'A9A9A9' : 'ffffff' }" >	      
+	     <tr bgcolor="#${id.count % 2 == 0 ? '#F0E68C' : 'ffffff' }" >	      
 	          <td>${li.id}</td> <td>${li.nome}</td> <td>${li.telefone}</td> 
 	       
 	          <td><a href="rem_cliente?num=${li.id}"><img src="img/6239_32x32.png" onclick="confirmacao(${li.id})"/></a> </td>

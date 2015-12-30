@@ -4,29 +4,17 @@
 <head>
   <link rel="styleSheet" type="text/css" href="css/style.css"/>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>SiSCad</title>
+<title>SiSCad</title><script type="text/javascript" src="js/validacao.js"></script>
 </head>
 <body>
-   <div id="conteiner">
-	   <div id="header"> </div>	   
-	   <div id="menu">	   
-	               <div id="wrapper">
-	 <div id="navMenu">
-	 
-	 <ul>
-	 <li><a href="">Cadastro</a>
-	 <ul>		  
-	 <li><a href="cad_cliente">Cliente</a></li>	
-	 </ul>
-	
-	</li>	
-	</ul>	
-	 </div>
-	 </div>	   
-	 </div>
-	   
-	   <div id="conteudo"></div>
-	   <div id="rodape"></div>
-	</div>
+  <form name="formLogin" action="Login" method="post">
+    <p align="center">
+      <table>
+          <tr><td>Usuário:</td><td><input type="text" name="txtUsuario"/></td></tr>
+          <tr><td>Senha:</td><td><input type="password" name="txtSenha"/></td></tr>
+          <tr><td colspan="2" align="center"><input type="button" value="Entrar" onclick="validarLogin()"/></td></tr>
+      </table>
+    </p>
+  </form>
 </body>
 </html> 

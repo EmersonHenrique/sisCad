@@ -4,6 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+  <script type="text/javascript" src="js/validacao.js"></script>
   <link rel="styleSheet" type="text/css" href="css/style.css"/>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Cliente</title>
@@ -19,9 +20,6 @@
 	 
 	 <ul>
 	 <li><a href="index.html">Home</a>
-	 </ul>
-	 <ul>		  
-	 <li><a href="cad_cliente">Novo</a></li>	
 	 </ul>
 	 
 	 <ul>		  
@@ -40,20 +38,20 @@
 	        <table>
 	        <form name="frm_cad_cliente" action="Cad_cliente" method="get">
 	        <tr>
-	            <td>Nome:</td><td><input type="text" name="txt_nome" size="50"></td> <td>Tel:</td><td><input type="text" name="txt_tel" size="40"></td>
+	            <td>Nome:</td><td><input type="text" name="txt_nome" size="50"></td> 
 	        </tr> 
 	        
 	        <tr>
-	            <td>End:</td>
+	            <td>Endereço:</td>
 	                <td>
 	                <select name="endereco">
 	                  <c:forEach items="${end}" var="e">
 	                     <option value="${e.logradouro}">${e.logradouro}</option>
 	                  </c:forEach> 	                
-	                </select></td>
+	                </select>
 	                
-	        <td>Nº</td><td><input type="text" name="txt_num" size="5"></td>        
-	        
+	        Nº<input type="text" name="txt_num" size="5">        
+	        </td>
 	        </tr>
 	        
 	        <tr>
@@ -65,7 +63,8 @@
 	                    <option value="${b.nome}">${b.nome}</option>	                
 	                </c:forEach>
 	               </select></td>
-	               
+	        </tr>
+	        <tr>       
 	            <td>Cidade:</td>
 	            <td>
 	              <select name="cidade">
@@ -74,9 +73,11 @@
 	                </c:forEach>
 	               </select></td> 
 	        </tr>	        
-	        
 	        <tr>
-	           <td colspan="2"><input type="submit" value="cadastrar"/></td>
+	           <td>Tel:</td><td><input type="text" name="txt_tel" size="30"></td>
+	        </tr> 
+	        <tr>
+	           <td colspan="2"><input type="button" value="cadastrar" onclick="validarCad()"/></td>
 	        </tr>   
 	        </form>
 	       </table>

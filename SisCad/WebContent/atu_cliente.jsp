@@ -4,6 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+  <script type="text/javascript" src="js/validacao.js"></script>
   <link rel="styleSheet" type="text/css" href="css/style.css"/>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Cliente</title>
@@ -41,7 +42,7 @@
 	        <form name="frm_cad_cliente" action="atu_ClienteServlet2" method="get">
 	        <input type="hidden" name="id" value="${li.id}"/>
 	        <tr>
-	            <td>Nome:</td><td><input type="text" name="txt_nome" value="${li.nome}" ></td>
+	            <td>Nome:</td><td><input type="text" name="txt_nome" value="${li.nome}" size="50"></td>
 	        </tr> 
 	        
 	        <tr>
@@ -79,7 +80,7 @@
 	        </tr> 
 	        	        
 	        <tr>
-	           <td colspan="2"><input type="submit" value="Atualizar"/></td>
+	           <td colspan="2"><input type="button" value="Atualizar" onclick="validarCad()"/></td>
 	        </tr>   
 	        </form>
 	       </table>
