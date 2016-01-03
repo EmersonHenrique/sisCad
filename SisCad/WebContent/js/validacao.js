@@ -30,7 +30,15 @@ function validarCad(){
 	document.frm_cad_cliente.submit();
   }
 
-
+function validarPesq(){
+	
+	if(document.pesquisa_cliente.txt_pesq.value==""){ 
+		alert("Campo Pesquisa Não Informado");
+		return false;
+	}
+	
+	document.pesquisa_cliente.submit();
+ }
 
 function confirmacao(id){
        if(confirm("Deseja Excluir Loja " + id + " ? ")){ 

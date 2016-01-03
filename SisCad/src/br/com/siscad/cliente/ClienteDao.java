@@ -200,36 +200,7 @@ public class ClienteDao {
 
 		
 		
-/*
-		String sql = "select * from cliente where id=?";
-		try {
-			PreparedStatement stmt = con.prepareStatement(sql);
-			stmt.setInt(1, id);
-			ResultSet rs = stmt.executeQuery();
 
-			List<Cliente> minhaLista = new ArrayList<Cliente>();
-			while (rs.next()) {
-				Cliente c = new Cliente();
-				c.setId(rs.getInt("id"));
-				c.setNome(rs.getString("nome"));
-
-				minhaLista.add(c);
-			}
-
-			stmt.close();
-			rs.close();
-			return minhaLista;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				con.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		return null;
-		*/
 	//--------------------------------------------------------------------------------------------------------------------------------------------------
 	public List<Cliente> getList() {
 
@@ -273,7 +244,7 @@ public class ClienteDao {
 	public List<Cliente> getList(String nome) {
 
 		try {
-			String sql = "select * from cliente where nome like ?";
+			String sql = "select * from cliente where cli_nome like ?";
 
 			PreparedStatement smt = con.prepareStatement(sql);
 
@@ -285,8 +256,13 @@ public class ClienteDao {
 			while (rs.next()) {
 				Cliente c = new Cliente();
 
-				c.setId(rs.getInt("id"));
-				c.setNome(rs.getString("nome"));
+				c.setId(rs.getInt("cli_id"));
+				c.setNome(rs.getString("cli_nome"));
+				c.setTelefone(rs.getString("cli_telefone"));
+				c.setEndereco(rs.getInt("cli_endereco"));
+				c.setBairro(rs.getInt("cli_bairro"));
+				c.setCidade(rs.getInt("cli_cidade"));
+				c.setNumero(rs.getInt("cli_numero"));
 
 				minhaLista.add(c);
 			}

@@ -7,6 +7,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+    <script type="text/javascript" src="js/validacao.js"></script>
     <script type="text/javascript">
   function confirmacao(id){
        if(confirm("Deseja Excluir id " + id + " ? ")){ 
@@ -62,7 +63,12 @@
 	   <div id="conteudo">
 	      <div id="lista">
 	      <center>
-	      <br><br>
+	      <br/>
+	      <form name="pesquisa_cliente" action="pesquisa_cliente" method="get">
+	          <input type="text" size="25" name="txt_pesq"/>
+	          <input type="button" value=".:Pesquisa" onclick="validarPesq()"/>
+	      </form>
+	      <br/>
 	   <table border="1">
 	      <tr>
 	         <td>Id</td><td>Nome</td><td>Telefone</td><td colspan="3"></td>
