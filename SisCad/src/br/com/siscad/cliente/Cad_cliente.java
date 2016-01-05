@@ -38,14 +38,7 @@ public class Cad_cliente extends HttpServlet {
 		Cliente c = new Cliente();
 		Connection con = CriarConexao.getConexao();
 		ClienteDao dao = new ClienteDao(con);
-		
-		System.out.println("nome : " + nome);
-		System.out.println("tel : " + tel);
-		System.out.println("endereco : " + end);
-		System.out.println("numero : " + numero);
-		System.out.println("Bairro : " + bai);
-		System.out.println("cidade : " + cid);
-		
+			
 	//--------------------endereço-------------------------			
 		Connection con_e = CriarConexao.getConexao();
 		EnderecoDao dao_e = new EnderecoDao(con_e);		
