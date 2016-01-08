@@ -32,7 +32,7 @@
 	 <div id="navMenu">
 	 
 	 <ul>
-	 <li><a href="index.html">Home</a>
+	 <li><a href="cad_menu.jsp">Home</a>
 	 <ul>		  
 	 <li></li>	
 	 </ul>	

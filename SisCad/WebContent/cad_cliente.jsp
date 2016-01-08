@@ -37,12 +37,12 @@
 	 <div id="navMenu">
 	 
 	 <ul>
-	 <li><a href="index.html">Home</a>
+	 <li><a href="cad_menu.jsp">Home</a>
 	 </ul>
 	 
 	 <!--**********************-->
 	<ul>
-	 <li><a href="index.html">Cadastro</a>
+	 <li><a href="#">Cadastro</a>
 	 
 	 <ul>		  
 	    <li><a href="cad_endereco.jsp" target="_blank">Endereco</a>		 
@@ -52,7 +52,7 @@
 	 
 	 
 	 <ul>		  
-	 <li><a href="cad_cidade" target="_blank">Cidade</a>	
+	 <li><a href="cad_cidade.jsp" target="_blank">Cidade</a>	
 	 </ul>
 	
 	</li>

@@ -7,6 +7,12 @@
 <title>Cabeçalho</title>
 </head>
 <body>
+      <%
+         String nomeUsuario = (String) session.getAttribute("usuarioAutenticado");
+         if(nomeUsuario==null)
+        	 throw new ServletException("Nenhum Usuário Logado ");
+      %>
+         Seja Bem-Vindo : <%=nomeUsuario%> | <a href="remover.jsp">Sair</a>
      <hr>
 </body>
 </html>
