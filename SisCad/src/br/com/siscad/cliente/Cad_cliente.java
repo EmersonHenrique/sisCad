@@ -16,9 +16,7 @@ import br.com.siscad.conexao.CriarConexao;
 import br.com.siscad.endereco.Endereco;
 import br.com.siscad.endereco.EnderecoDao;
 
-/**
- * Servlet implementation class Cad_cliente
- */
+
 @WebServlet("/Cad_cliente")
 public class Cad_cliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -30,7 +28,7 @@ public class Cad_cliente extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nome = request.getParameter("txt_nome");
 		String tel = request.getParameter("txt_tel");
-		String end = request.getParameter("endereco");
+		String cep = request.getParameter("endereco");
 		int numero = Integer.parseInt(request.getParameter("txt_num"));
 		String bai = request.getParameter("bairro");
 		String cid = request.getParameter("cidade");
@@ -42,7 +40,7 @@ public class Cad_cliente extends HttpServlet {
 	//--------------------endereço-------------------------			
 		Connection con_e = CriarConexao.getConexao();
 		EnderecoDao dao_e = new EnderecoDao(con_e);		
-		int en = dao_e.getListBuscaString(end).getId();
+		int en = dao_e.getListBuscaString(cep).getId();
 	//---------------------bairro---------------------------	
 		Connection con_b = CriarConexao.getConexao();
 		BairroDao dao_b = new BairroDao(con_b);
@@ -55,7 +53,7 @@ public class Cad_cliente extends HttpServlet {
 		
 		c.setNome(nome);
 		c.setTelefone(tel);
-		c.setEndereco(en);
+		c.setCep(en);
 		c.setNumero(numero);
 		c.setBairro(ba);
 		c.setCidade(ci);
@@ -65,15 +63,9 @@ public class Cad_cliente extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/cad_cliente");
+			
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/List_cliente2");
 		request.setAttribute("msg", "Cliente " + nome + " Salvo com Sucesso");
 		dispatcher.forward(request, response);
 	}
-
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
 }

@@ -13,7 +13,7 @@
 	  $('.pagina').click(function(){
 	      $('#modal').fadeIn(500);
           var url = $(this).attr('href');		  
-		 $('.modal-box-conteudo').load("pagina.html "+url);
+		 $('.modal-box-conteudo').load("pagina2.html "+url);
 		 });
 	      $('.fechar,#modal').click(function(event){
 		     if(event.target !== this){
@@ -37,7 +37,7 @@
 	 <div id="navMenu">
 	 
 	 <ul>
-	 <li><a href="cad_menu.jsp">Home</a>
+	 <li><a href="cad_menu.jsp">Início</a>
 	 </ul>
 	 
 	 <!--**********************-->
@@ -71,11 +71,12 @@
 	</div>
 	   
 	   <div id="conteudo"> 
-	    <!-- 
+	   <!--     
 		| <a href="#pagina1" class="pagina">Pagina 1</a>
 		| <a href="#pagina2" class="pagina">Pagina 2</a>
 		| <a href="#pagina3" class="pagina">Pagina 3</a>
-		 -->
+		-->
+	  
 		  <div id="modal">
 		    <div class="modal-box">
 			   <div class="modal-box-conteudo">
@@ -90,10 +91,9 @@
 	        <form name="frm_cad_cliente" action="Cad_cliente" method="get">
 	        <tr>
 	            <td>Nome:</td><td><input type="text" name="txt_nome" size="50"></td> 
-	        </tr> 
-	        
+	        </tr>	        
 	        <tr>
-	            <td>Endereço: <a href="cad_endereco.jsp" target="_blank">...</a></td>
+	            <td>End: <a href="cad_endereco.jsp" target="_blank">...</a></td>
 	                <td>
 	                <select name="endereco">
 	                  <c:forEach items="${end}" var="e">
@@ -103,10 +103,8 @@
 	                
 	        Nº<input type="text" name="txt_num" size="5">        
 	        </td>
-	        </tr>
-	        
-	        <tr>
-	        	        
+	        </tr> 
+	        <tr>	        	        
 	            <td>Bairro:<a href="cad_bairro.jsp" target="_blank">...</a></td>
 	            <td>
 	              <select name="bairro">

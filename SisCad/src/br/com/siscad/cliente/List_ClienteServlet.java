@@ -41,7 +41,7 @@ public class List_ClienteServlet extends HttpServlet {
 		Connection con2 = CriarConexao.getConexao();
 		ClienteDao dao2 = new ClienteDao(con2);
 		int totalRegistros = dao2.contaRegistro();
-				
+						
 		request.setAttribute("list", list);
 		request.setAttribute("totalRegistros", totalRegistros);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/list_cliente.jsp");

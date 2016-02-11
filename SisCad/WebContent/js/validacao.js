@@ -43,7 +43,7 @@ function validarPesq(){
 function validarBai(){
 	
 	if(document.form_cad_bairro.txt_nome.value==""){ 
-		alert("Campo Pesquisa Não Informado");
+		alert("Campo Nome Não Informado");
 		return false;
 	}
 	
@@ -53,7 +53,7 @@ function validarBai(){
 function validarEnd(){
 	
 	if(document.frm_cad_endereco.txt_nome.value==""){ 
-		alert("Campo Pesquisa Não Informado");
+		alert("Campo Nome Não Informado");
 		return false;
 	}
 	
@@ -63,7 +63,7 @@ function validarEnd(){
 function validarCid(){
 	
 	if(document.frm_cad_cidade.txt_nome.value==""){ 
-		alert("Campo Pesquisa Não Informado");
+		alert("Campo Nome Não Informado");
 		return false;
 	}
 	

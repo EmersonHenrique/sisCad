@@ -19,7 +19,7 @@
 	 <div id="navMenu">
 	 
 	 <ul>
-	 <li><a href="index.html">Home</a>
+	 <li><a href="cad_menu.jsp">Início</a>
 	 </ul>
 	 <ul>		  
 	 <li><a href="cad_cliente">Novo</a></li>	
@@ -49,7 +49,7 @@
 	            <td>Endereco:</td><td> 
 	               <select name="endereco">
 	                  <c:forEach items="${end}" var="e">
-	                      <option value="${e.id}" ${li.endereco == e.id ? 'selected' : ''}>${e.logradouro}</option>  
+	                      <option value="${e.id}" ${li.cep == e.id ? 'selected' : ''}>${e.logradouro}</option>  
 	                  </c:forEach> 	                
 	                </select>
 	               Nº:<input type="text" name="txt_num" value="${li.numero}" size="3" /> 

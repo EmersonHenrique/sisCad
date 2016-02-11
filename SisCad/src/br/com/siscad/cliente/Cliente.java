@@ -6,7 +6,7 @@ public class Cliente {
     private String nome;
     private String telefone;
     private int numero;
-    private int endereco;
+    private int cep;
     private int bairro;
     private int cidade;
     private String UF; 
@@ -35,11 +35,12 @@ public class Cliente {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	public int getEndereco() {
-		return endereco;
+		
+	public int getCep() {
+		return cep;
 	}
-	public void setEndereco(int endereco) {
-		this.endereco = endereco;
+	public void setCep(int cep) {
+		this.cep = cep;
 	}
 	public int getBairro() {
 		return bairro;

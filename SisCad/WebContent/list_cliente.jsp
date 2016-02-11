@@ -32,7 +32,7 @@
 	 <div id="navMenu">
 	 
 	 <ul>
-	 <li><a href="cad_menu.jsp">Home</a>
+	 <li><a href="cad_menu.jsp">Início</a>
 	 <ul>		  
 	 <li></li>	
 	 </ul>	
@@ -40,7 +40,7 @@
 	 </ul>
 	 <!--********************* -->
 	 <ul>
-	 <li><a href="VisualisarRelatorio?relat=cliente">Relatório</a>
+	 <li><a href="VisualisarRelatorio?relat=clientes">Relatório</a>
 	 <ul>		  
 	 <li></li>	
 	 </ul>	
@@ -65,13 +65,13 @@
 	      <center>
 	      <br/>
 	      <form name="pesquisa_cliente" action="pesquisa_cliente" method="get">
-	          <input type="text" size="25" name="txt_pesq"/>
+	          <input type="text" size="50" name="txt_pesq"/>
 	          <input type="button" value=".:Pesquisa" onclick="validarPesq()"/>
 	      </form>
 	      <br/>
-	   <table border="1">
+	   <table>
 	      <tr>
-	         <td>Id</td><td>Nome</td><td>Telefone</td><td colspan="3"></td>
+	         <th>Id</th><th>Nome</th><th>Telefone</th><th colspan="3"></th>
 	      </tr>
 	      <c:forEach var="li" items="${list}" varStatus="id">	      
 	     <tr bgcolor="#${id.count % 2 == 0 ? '#F0E68C' : 'ffffff' }" >	      
@@ -79,23 +79,26 @@
 	       
 	          <td><a href="rem_cliente?num=${li.id}"><img src="img/6239_32x32.png" onclick="confirmacao(${li.id})"/></a> </td>
 	          <td><a href="atu_Cliente?num=${li.id}"><img src="img/package_editors.png"/></a></td>
+	          <td><a href="VisualisarRelatorio?relat=${li.id}"><img src="img/printer1.png"/></a></td>
 	      </tr>
 	      </c:forEach> 
 	   </table>
 	     <%
+	     Object object = request.getAttribute("totalRegistros");
+	     int totalRegistros = Integer.parseInt(object.toString());
+	     
 	     String numPagina = request.getParameter("numPagina");
 	     if(numPagina==null){
+	    	// String string = String.valueOf(totalRegistros);
 	    	 numPagina="1";
-	     }	          
-	        Object object = request.getAttribute("totalRegistros");
-	        int totalRegistros = Integer.parseInt(object.toString());
+	      }	      
+	        
 	        for(int i = 1; i<=totalRegistros; i++)
 	        	  if(i==Integer.parseInt(numPagina)) 
 	        		  out.println(i);
 	        	  else 
-	        	     out.println("<a href=List_cliente2?numPagina="+i+">"+i+"</a>");	      	
-	        
-	     %>
+	        	     out.println("<a href=List_cliente2?numPagina="+i+">"+i+"</a>"); 	                 
+	      %>
 	   </center>
 	   
 	   </div>

@@ -1,0 +1,54 @@
+@CHARSET "ISO-8859-1";
+
+*{
+  margin:0px;
+  padding:0px;
+ }
+ 
+#conteiner{
+   width:950px;
+   height:400px;
+   background:#FFF;
+   margin:0 auto;/* centraliza a pagina*/
+   }
+   
+#header{
+   margin-top:100px;
+   width:950px;
+   height:100px;
+   background:#FFF;
+}
+
+#menu{
+   width:950px;
+   height:32px;
+   background:#999;
+   margin:0 auto;/* centraliza a pagina*/
+} 
+#conteudo{
+   width:950px;
+   height:80px;
+   background:#DCDCDC;
+ }
+ 
+#rodape{
+   width:950px;
+   height:32px;
+   background:#999;
+}
+
+#cliente{
+	width:900px;
+	background:#FFF;
+	margin:0 auto;/* centraliza a pagina*/
+	background:#DCDCDC;
+}
+
+#lista{
+	width:700px;
+	background:#FFF;
+	margin:0 auto;/* centraliza a pagina*/
+	background:#DCDCDC;	
+}
+/*********************************************************  links **********************************************************/
+

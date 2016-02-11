@@ -18,14 +18,14 @@ public class ClienteDao {
 	// -----------------------------------------------------------------------------------------------------------------------------------------------
 	public void salvar(Cliente c) throws SQLException {
 
-		String sql = "insert into cliente(cli_nome,cli_telefone,cli_endereco,cli_bairro,cli_cidade,cli_numero)values(?,?,?,?,?,?)";
+		String sql = "insert into cliente(cli_nome,cli_telefone,cli_cep,cli_bairro,cli_cidade,cli_numero)values(?,?,?,?,?,?)";
 
 		try {
 			
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1, c.getNome());
 			stmt.setString(2, c.getTelefone());
-			stmt.setInt(3, c.getEndereco());
+			stmt.setInt(3, c.getCep());
 			stmt.setInt(4, c.getBairro());
 			stmt.setInt(5, c.getCidade());
 			stmt.setInt(6, c.getNumero());
@@ -36,7 +36,7 @@ public class ClienteDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			con.close();
+			//con.close();
 			System.out.println("conexao fechada");
 		}
 
@@ -67,12 +67,12 @@ public class ClienteDao {
 
 	// -----------------------------------------------------------------------------------------------------------------------------------------------
 	public void atualizar(Cliente c) {
-		String sql = "update cliente set cli_nome = ?, cli_telefone =?,cli_endereco=?,cli_bairro=?,cli_cidade=?,cli_numero= ? where cli_id=?";
+		String sql = "update cliente set cli_nome = ?, cli_telefone =?,cli_cep=?,cli_bairro=?,cli_cidade=?,cli_numero= ? where cli_id=?";
 		try {
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1, c.getNome());
 			stmt.setString(2, c.getTelefone());
-			stmt.setInt(3, c.getEndereco());
+			stmt.setInt(3, c.getCep());
 			stmt.setInt(4, c.getBairro());
 			stmt.setInt(5, c.getCidade());
 			stmt.setInt(6, c.getNumero());			
@@ -100,8 +100,9 @@ public class ClienteDao {
 			pagina=--pagina;
 		
 		pagina = pagina * 10;
-		
-		String sql = "select * from cliente  LIMIT 10 offset "+pagina+";";
+		//select * from cliente  ORDER BY cli_
+		//String sql = "select * from cliente  LIMIT 10 offset "+pagina+";";
+		String sql = "select * from cliente ORDER BY cli_id DESC  LIMIT 10 offset "+pagina+";";
 		try {
 			PreparedStatement stmt = con.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
@@ -113,18 +114,13 @@ public class ClienteDao {
 				c.setId(rs.getInt("cli_id"));
 				c.setNome(rs.getString("cli_nome"));
 				c.setTelefone(rs.getString("cli_telefone"));
-				//c.setEndereco(rs.getInt("cli_endereco"));
+				c.setCep(rs.getInt("cli_cep"));
 				c.setBairro(rs.getInt("cli_bairro"));
 				c.setCidade(rs.getInt("cli_cidade"));
 				c.setNumero(rs.getInt("cli_numero"));
-				
-				Connection con2 = CriarConexao.getConexao();
-				EnderecoDao dao_e = new EnderecoDao(con2);
-				
-				c.setEndereco(rs.getInt("cli_endereco"));
-			
-								
-				minhaLista.add(c);
+											
+				minhaLista.add(c);				
+			//	Collections.reverse(minhaLista);				
 			}
 
 			stmt.close();
@@ -172,6 +168,10 @@ public class ClienteDao {
 		}
     	return 0;
     }
+    
+ //========================================================================================================================================
+    
+    
 	public Cliente getListBuscaId(int cli_id) {		
 		
 		Cliente c = new Cliente();
@@ -186,7 +186,7 @@ public class ClienteDao {
 	      
 	      c.setNome(rs.getString("cli_nome"));
 	      c.setTelefone(rs.getString("cli_telefone"));
-		  c.setEndereco(rs.getInt("cli_endereco"));
+		  c.setCep(rs.getInt("cli_cep"));
 		  c.setBairro(rs.getInt("cli_bairro"));
 		  c.setCidade(rs.getInt("cli_cidade"));
 		  c.setNumero(rs.getInt("cli_numero"));
@@ -210,19 +210,21 @@ public class ClienteDao {
 			PreparedStatement smt = con.prepareStatement(sql);
 			ResultSet rs = smt.executeQuery();
 
-			List<Cliente> minhaLista = new ArrayList<Cliente>();
+			List<Cliente> minhaLista = new LinkedList<Cliente>();
+			//TreeSet<Cliente> minhaLista = new TreeSet<Cliente>();
 			while (rs.next()) {
 				Cliente c = new Cliente();
 
 				c.setId(rs.getInt("cli_id"));
 				c.setNome(rs.getString("cli_nome"));
 				c.setTelefone(rs.getString("cli_telefone"));
-				c.setEndereco(rs.getInt("cli_endereco"));
+				c.setCep(rs.getInt("cli_cep"));
 				c.setBairro(rs.getInt("cli_bairro"));
 				c.setCidade(rs.getInt("cli_cidade"));
 				c.setNumero(rs.getInt("cli_numero"));
 				
 				minhaLista.add(c);
+				Collections.reverse(minhaLista);
 			}
 
 			smt.close();
@@ -259,7 +261,7 @@ public class ClienteDao {
 				c.setId(rs.getInt("cli_id"));
 				c.setNome(rs.getString("cli_nome"));
 				c.setTelefone(rs.getString("cli_telefone"));
-				c.setEndereco(rs.getInt("cli_endereco"));
+				c.setCep(rs.getInt("cli_cep"));
 				c.setBairro(rs.getInt("cli_bairro"));
 				c.setCidade(rs.getInt("cli_cidade"));
 				c.setNumero(rs.getInt("cli_numero"));

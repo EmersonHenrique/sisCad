@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cliente" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="id" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT
+     endereco.`end_logradouro` AS endereco_end_logradouro,
+     bairro.`bai_nome` AS bairro_bai_nome,
+     cidade.`cid_nome` AS cidade_cid_nome,
+     cliente.`cli_nome` AS cliente_cli_nome,
+     cliente.`cli_telefone` AS cliente_cli_telefone,
+     cliente.`cli_cidade` AS cliente_cli_cidade,
+     cliente.`cli_numero` AS cliente_cli_numero,
+     endereco.`end_cep` AS endereco_end_cep,
+     cliente.`cli_id` AS cliente_cli_id
+FROM
+     `bairro` bairro INNER JOIN `cliente` cliente ON bairro.`bai_id` = cliente.`cli_bairro`
+     INNER JOIN `cidade` cidade ON cliente.`cli_cidade` = cidade.`cid_id`
+     INNER JOIN `endereco` endereco ON cliente.`cli_cep` = endereco.`end_id`  where cli_id = $P{id};]]>
+	</queryString>
+	<field name="endereco_end_logradouro" class="java.lang.String"/>
+	<field name="bairro_bai_nome" class="java.lang.String"/>
+	<field name="cidade_cid_nome" class="java.lang.String"/>
+	<field name="cliente_cli_nome" class="java.lang.String"/>
+	<field name="cliente_cli_telefone" class="java.lang.String"/>
+	<field name="cliente_cli_cidade" class="java.lang.Integer"/>
+	<field name="cliente_cli_numero" class="java.lang.Integer"/>
+	<field name="endereco_end_cep" class="java.lang.Integer"/>
+	<field name="cliente_cli_id" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="20" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="19" width="555" height="1"/>
+			</line>
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="20" forecolor="#CCCCCC" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="185" y="0" width="150" height="20" forecolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relátorio do Cliente]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="85" splitType="Stretch">
+			<textField>
+				<reportElement x="38" y="40" width="99" height="20"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{endereco_end_logradouro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="308" y="40" width="45" height="20"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{cliente_cli_numero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="445" y="40" width="110" height="20"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{endereco_end_cep}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="291" y="20" width="45" height="20"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[Telefone:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="20" width="555" height="20" forecolor="#CCFFFF" backcolor="#CCFFFF"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="40" width="38" height="20"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[Rua:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="1" y="65" width="555" height="20" forecolor="#CCFFFF" backcolor="#CCFFFF"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="399" y="40" width="46" height="20"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[CEP:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="40" width="18" height="20"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[Nº:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="19" y="0" width="39" height="20"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{cliente_cli_id}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="0" width="18" height="20"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[ID:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="336" y="20" width="78" height="20"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cliente_cli_telefone}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="20" width="252" height="20"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cliente_cli_nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="20" width="37" height="20"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[Nome:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="38" y="65" width="110" height="20"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cidade_cid_nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="65" width="38" height="20"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[Cidade:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="20" width="46" height="20"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[Telefone:]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="20" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="555" height="5"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
